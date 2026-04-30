@@ -1,7 +1,9 @@
+
 class Logger {
     constructor(){
         this.levels = ["debug", "info", "warn", "error"]
         this.currentLevel = "debug"
+        this.sessionId = crypto.randomUUID()
     }
 
     setLevel(level){
@@ -12,27 +14,44 @@ class Logger {
         }
     }
 
-    log(level, message){
+    log(level, message, context={}){
         const levelIndex = this.levels.indexOf(level)
         const currentLevelIndex = this.levels.indexOf(this.currentLevel)
         if (levelIndex >= currentLevelIndex){
             const timestamp = new Date().toISOString()
-            console[level](`${level.toUpperCase()} ${timestamp}: ${message}`)
+            const logMessage =   `[${this.sessionId}] ${level.toUpperCase()} ${timestamp}: ${message}${Object.keys(context).length > 0 ? ` | ${JSON.stringify(context)}` : ''}`
+            console[level](logMessage)
         }
     }
 
-    debug(message){
-        this.log("debug", message)
+    sendLog = async (level, message, context={}) => {
+        try{
+            await fetch("/api/logs/client-errors", {
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ level, message, context, sessionId: this.sessionId})
+            })
+        } catch (error) {
+            console.error("Failed to send log to server: ", error)
+        }
     }
 
-    info(message){
-        this.log("info", message)
+    debug(message, context){
+        this.log("debug", message, context)
     }
-    warn(message){
-        this.log("warn", message)
+
+    info(message, context){
+        this.log("info", message, context)
     }
-    error(message){
-        this.log("error", message)
+    warn(message, context){
+        this.log("warn", message, context)
+        this.sendLog("warn", message, context)
+    }
+    error(message, context){
+        this.log("error", message, context)
+        this.sendLog("error", message, context)
     }
 }
 
