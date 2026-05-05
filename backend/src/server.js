@@ -1,7 +1,6 @@
 const { requestMiddleware } = require("./middleware/requestId")
 const loggerMiddleware = require("./middleware/logger");
 const errorHandler = require("./middleware/errorHandler");
-const pool = require("./config/database")
 
 const express = require("express")
 const cors = require("cors");
@@ -29,5 +28,3 @@ const NODE_ENV = process.env.NODE_ENV || "development"
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
-
-const result = await pool.query("SELECT * FROM users")
