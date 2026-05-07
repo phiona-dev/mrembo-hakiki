@@ -1,0 +1,104 @@
+{
+    "products": [
+        
+        {
+           "barcode": "4901234567890",
+           "name": "L'Oreal Paris Serum",
+           "brand": "L'Oreal Paris",
+           "category": "cosmetics",
+           "image_url": null,
+           "is_counterfeit": false,
+           "notes": "Full reference match"
+        },
+        {
+           "barcode": "5901234567891",
+           "name": "Nivea Soft Cream",
+           "brand": "Nivea",
+           "category": "cosmetics",
+           "image_url": null,
+           "is_counterfeit": false,
+           "notes": "Full reference match"
+        },
+        {
+           "barcode": "6901234567892",
+           "name": "Pears Soap",
+           "brand": "Pears",
+           "category": "cosmetics",
+           "image_url": null,
+           "is_counterfeit": false,
+           "notes": "Full reference match"
+        },
+        {
+           "barcode": "7901234567893",
+           "name": "L'Oreal Paris Revitalift Serum",
+           "brand": "L'Oreal Paris",
+           "category": "cosmetics",
+           "image_url": null,
+           "is_counterfeit": true,
+           "notes": "Missing safety seal."
+        },
+        {
+           "barcode": "8901234567894",
+           "name": "Nivea Soft Cream",
+           "brand": "Nivea",
+           "category": "cosmetics",
+           "image_url": null,
+           "is_counterfeit": true,
+           "notes": "Ingredient mismatch"
+        },
+        {
+           "barcode": "9901234567895",
+           "name": "Mac Foundation",
+           "brand": "Mac",
+           "category": "cosmetics",
+           "image_url": null,
+           "is_counterfeit": true,
+           "notes": "Barcode not in reference"
+        },
+        {
+           "barcode": "1111111111111",
+           "name": "Mee Cream",
+           "brand": "Mee",
+           "category": "cosmetics",
+           "image_url": null,
+           "is_counterfeit": true,
+           "notes": "Missing reference data"
+        },
+        {
+           "barcode": "2222222222222",
+           "name": "Nivea Soft Light Moisturizing Cream with Vitamin E and Jojoba Oil",
+           "brand": "Nivea",
+           "category": "cosmetics",
+           "image_url": null,
+           "is_counterfeit": true,
+           "notes": "Test edge case"
+        },
+        {
+           "barcode": "3333333333333",
+           "name": "Nivéa Créam",
+           "brand": "Nivea",
+           "category": "cosmetics",
+           "image_url": null,
+           "is_counterfeit": true,
+           "notes": "Test encoding"
+        },
+        {
+           "barcode": "4444444444444",
+           "name": "Simple Face Wash",
+           "brand": "",
+           "category": "cosmetics",
+           "image_url": null,
+           "is_counterfeit": true,
+           "notes": "Test missing optional fields"
+        },
+        {
+           "barcode": "5555555555555",
+           "name": "L'Ore文l Pa文is Serum",
+           "brand": "L'Oreal",
+           "category": "cosmetics",
+           "image_url": null,
+           "is_counterfeit": true,
+           "notes": "Test encoding"
+        }
+    ]
+}
