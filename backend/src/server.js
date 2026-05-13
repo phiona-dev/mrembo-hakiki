@@ -5,6 +5,7 @@ const errorHandler = require("./middleware/errorHandler");
 const express = require("express")
 const cors = require("cors");
 const healthRouter = require("./routes/health")
+const productRouter = require("./routes/productRoutes")
 require("dotenv").config();
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(requestMiddleware)
 app.use(loggerMiddleware)
 
 app.use("/health", healthRouter)
+app.use("/products", productRouter)
 
 app.use((req, res) => {
     res.status(404).json({ message: "Route not found" })

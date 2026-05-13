@@ -4,7 +4,7 @@ const asyncLocalStorage = new AsyncLocalStorage();
 
 function requestMiddleware(req, res, next){
     const id = crypto.randomUUID();
-    asyncLocalStorage.run(id, () => {
+    asyncLocalStorage.run({ id, debugInfo: {} }, () => {
         res.setHeader("X-Request-Id", id);
         next();
     })
