@@ -16,11 +16,12 @@ const ScanPage = () => {
     setError(null);
     try {
       const response = await getProduct(barcode);
-      if(response.ok){
-        navigate(`/result/${barcode}`, { state: { product: response.data } })
-      }
+
+      //console.log("Product data received:", response)
+      
+      navigate(`/result/${barcode}`, { state: { product: response } })
     } catch(error) {
-      setError(error)
+      setError(error.message)
       setIsLoading(false);
     }
   }

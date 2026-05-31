@@ -4,7 +4,7 @@ const getProduct = async (barcode) => {
     try {
         const response = await axios.get(`http://localhost:5000/products/${barcode}`)
 
-        return response.data;
+        return response.data.product;
     } catch (error) {
         if (error.response?.status === 404) {
             throw new Error("Product not found", { cause: error })
