@@ -18,7 +18,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<LandingPage/>} />
       <Route path="/scan" element={<ScanPage/>} />
-      <Route path="/result" element={<ResultPage/>} /> //will change path to path="/result/:barcode"
+      <Route path="/result/:barcode" element={<ResultPage/>} /> //will change path to path="/result/:barcode"
       <Route path="/demo" element={<DemoPage/>} />
     </Routes>
   )
