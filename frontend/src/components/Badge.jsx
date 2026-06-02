@@ -2,7 +2,7 @@
 const Badge = ({ type }) => {
      const styles = {
         genuine: {backgroundColor: "#10b981", color: "white", text: "Genuine"},
-        counterfeit: {backgroundColor: "ef4444", color: "white", text: "Likely a fake product"}
+        counterfeit: {backgroundColor: "#ef4444", color: "white", text: "Likely a fake product"}
     }
   return (
     <span style={{
