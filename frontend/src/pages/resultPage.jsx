@@ -19,13 +19,13 @@ const ResultPage = () => {
 
   return (
     <div>
-      <h2>Result</h2>
-      <h4>{product?.name}</h4>
-      <p>{product?.brand}</p>
-      <p>{product?.barcode}</p>
+      <h3>Result</h3>
+      <h2>{product?.name ? product.name : "Unknown Product"}</h2>
+      <p>{product?.brand ? product.brand : "Unknown Brand"}</p>
+      <p>{product?.barcode ? product.barcode : "No barcode available"}</p>
       <p>{product?.is_counterfeit ? <Badge type="counterfeit"/> : <Badge type="genuine" />}</p>
       <h6>Evidence</h6>
-      <p>{product?.notes}</p>
+      <p>{product?.notes ? product.notes : "No evidence provided"}</p>
 
       <button onClick={() => navigate("/scan")}>Scan another</button>
       <button onClick={() => navigate("/demo")}>Demo</button>
