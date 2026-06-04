@@ -30,6 +30,13 @@
     height: 150px;
 }
 
+.skeleton-base.button {
+    border-radius: 24px;
+    width: 120px;
+    height: 40px;
+    display: inline-block;
+}
+
 .skeleton-base:last-child {
     margin-bottom: 0;
 }
