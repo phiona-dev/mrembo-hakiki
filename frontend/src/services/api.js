@@ -7,13 +7,13 @@ const getProduct = async (barcode) => {
         return response.data.product;
     } catch (error) {
         if (error.response?.status === 404) {
-            throw new Error("Product not found", { cause: error })
+            throw new Error("Product not found in our database. Try demo mode to see how it works.", { cause: error })
         }
         if (error.response?.status === 500){
-            throw new Error("Server error, try again later", { cause: error })
+            throw new Error("Server error. Please try again later", { cause: error })
         }
         if (error.code === "ERR_NETWORK") {
-            throw new Error("Cannot connect to server", { cause: error })
+            throw new Error("Cannot connect to server. Check your internet connection", { cause: error })
         }
         throw new Error("Something went wrong", { cause: error })
     }

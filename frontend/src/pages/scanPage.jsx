@@ -23,6 +23,7 @@ const ScanPage = () => {
       navigate(`/result/${barcode}`, { state: { product: response } })
     } catch(error) {
       setError(error.message)
+    } finally {
       setIsLoading(false);
     }
   }
@@ -34,7 +35,16 @@ const ScanPage = () => {
             {isLoading ? "Loading..." : "Submit"}
           </button>
           
-          {error && <p style={{ color: "red" }}>{error}</p>}
+          {error &&  (
+            <div>
+              <p style={{ color: "red" }}>{error}</p>
+              {error.includes("Product not found") ? (
+                <button onClick={() => navigate("/demo")}>Try Demo mode</button>
+              ) : (
+                <button onClick={() => handleCheckProduct(barcode)} disabled={isLoading}>Retry</button>
+              )}
+            </div>
+          )}
         </form>
         {isLoading && <ProductSkeleton/>}
       </div>
