@@ -23,10 +23,24 @@ const ScanPage = () => {
       navigate(`/result/${barcode}`, { state: { product: response } })
     } catch(error) {
       setError(error.message)
-    } finally {
       setIsLoading(false);
     }
   }
+
+  const handleRetry = async (barcode) => {
+    if (!barcode.trim()) return;
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await getProduct(barcode);
+      navigate(`/result/${barcode}`, { state: { product: response } })
+    } catch(error) {
+      setError(error.message)
+      setIsLoading(false);
+    }
+  }
+
+
   return (
       <div>
         <form onSubmit={handleCheckProduct}>
@@ -41,7 +55,7 @@ const ScanPage = () => {
               {error.includes("Product not found") ? (
                 <button onClick={() => navigate("/demo")}>Try Demo mode</button>
               ) : (
-                <button onClick={() => handleCheckProduct(barcode)} disabled={isLoading}>Retry</button>
+                <button onClick={() => handleRetry(barcode)} disabled={isLoading}>Retry</button>
               )}
             </div>
           )}
