@@ -1,0 +1,94 @@
+{
+  "products": [
+    {
+      "id": "demo_001",
+      "barcode": "DEMO4901234567890",
+      "name": "L'Oreal Paris Revitalift Serum",
+      "brand": "L'Oreal Paris",
+      "is_counterfeit": false,
+      "notes": "Original packaging. Safety seal intact. Ingredients match KEBS reference database. Price within expected range for Nairobi.",
+      "category": "Skincare"
+    },
+    {
+      "id": "demo_002",
+      "barcode": "DEMO5901234567891",
+      "name": "Nivea Soft Moisturizing Cream",
+      "brand": "Nivea",
+      "is_counterfeit": false,
+      "notes": "Ingredients verified against manufacturer reference. Packaging matches official standards. Product sourced from authorized retailer.",
+      "category": "Skincare"
+    },
+    {
+      "id": "demo_003",
+      "barcode": "DEMO6901234567892",
+      "name": "Pears Pure and Gentle Soap",
+      "brand": "Pears",
+      "is_counterfeit": false,
+      "notes": "Batch number verified. Manufacturing date matches packaging. Authenticity confirmed by KEBS reference data.",
+      "category": "Bathing"
+    },
+    {
+      "id": "demo_004",
+      "barcode": "DEMO1111111111111",
+      "name": "Simple Kind to Skin Face Wash",
+      "brand": "Simple",
+      "is_counterfeit": false,
+      "notes": "Ingredients list matches official reference. No parabens or artificial perfumes as advertised. Packaging quality confirmed.",
+      "category": "Skincare"
+    },
+    {
+      "id": "demo_005",
+      "barcode": "DEMO2222222222222",
+      "name": "MAC Retro Matte Lipstick - Ruby Woo",
+      "brand": "MAC Cosmetics",
+      "is_counterfeit": false,
+      "notes": "Batch code verified. Bullet texture and smell consistent with genuine product. Serial number matches manufacturer records.",
+      "category": "Makeup"
+    },
+    {
+      "id": "demo_006",
+      "barcode": "DEMO7901234567893",
+      "name": "L'Oreal Paris Revitalift Serum (Counterfeit Sample)",
+      "brand": "L'Oreal Paris",
+      "is_counterfeit": true,
+      "notes": "Missing safety seal. Price 60% below market average. Ingredient list differs from reference. Packaging has spelling errors: 'Revitalif' instead of 'Revitalift'.",
+      "category": "Skincare"
+    },
+    {
+      "id": "demo_007",
+      "barcode": "DEMO8901234567894",
+      "name": "Nivea Soft Cream (Counterfeit Sample)",
+      "brand": "Nivea",
+      "is_counterfeit": true,
+      "notes": "Ingredient mismatch: Contains hydroquinone (banned substance). Texture is unusually watery. Container plastic quality is poor.",
+      "category": "Skincare"
+    },
+    {
+      "id": "demo_008",
+      "barcode": "DEMO9901234567895",
+      "name": "MAC Foundation (Counterfeit Sample)",
+      "brand": "MAC Cosmetics",
+      "is_counterfeit": true,
+      "notes": "Barcode not found in any reference database. Packaging missing batch number. Product has strong chemical smell unlike genuine product.",
+      "category": "Makeup"
+    },
+    {
+      "id": "demo_009",
+      "barcode": "DEMO3333333333333",
+      "name": "Unknown Brand Beauty Cream",
+      "brand": "",
+      "is_counterfeit": null,
+      "notes": "No reference data available for this product. Unable to verify authenticity. Recommend purchasing from authorized retailers.",
+      "category": "Skincare"
+    },
+    {
+      "id": "demo_010",
+      "barcode": "DEMO4444444444444",
+      "name": "L'Oreal Paris Revitalift Filler Hyaluronic Acid Anti-Aging Serum (Long Name Test)",
+      "brand": "L'Oreal Paris",
+      "is_counterfeit": false,
+      "notes": "Tests UI handling of very long product names. Product is genuine. All safety seals intact. Ingredients verified.",
+      "category": "Skincare"
+    }
+  ]
+}
