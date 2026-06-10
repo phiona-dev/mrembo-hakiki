@@ -1,21 +1,32 @@
 import demoData from "../data/demoProducts.json";
-const demoPage = () => {
+import Card from "../components/Card";
+import { useNavigate } from "react-router-dom";
+
+const DemoPage = () => {
+  const navigate = useNavigate();
 
   const demoProducts = demoData.products;
+
+  const handleCardClick = (product) => {
+    navigate("/result/${barcode}", { state: { product } });
+  }
+
   return (
     <div>
       {demoProducts.map(product => (
-        <div key={product.id}>
-          <h3>{product.name}</h3>
-          <p>{product.brand}</p>
-          <p>{product.barcode}</p>
-          <p>{product.category}</p>
-          <p>{product.is_counterfeit}</p>
-          <p>{product.notes}</p>
-        </div>
+        <Card 
+        key={product.id}
+        name={product.name}
+        brand={product.brand}
+        barcode={product.barcode}
+        category={product.category}
+        is_counterfeit={product.is_counterfeit}
+        notes={product.notes}
+        onClick={() => handleCardClick(product)}
+        />
       ))}
     </div>
   )
 }
 
-export default demoPage
+export default DemoPage
