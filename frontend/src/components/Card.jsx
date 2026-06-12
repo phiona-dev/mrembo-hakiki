@@ -1,9 +1,9 @@
 import "./Card.css";
 import Badge from "./Badge";
 
-const Card = ({ id,name,brand,barcode,category,is_counterfeit,notes, onClick }) => {
+const Card = ({ name,brand,barcode,category,is_counterfeit,notes, onClick }) => {
   return (
-    <div className="cardContainer" key={id} onClick={onClick}>
+    <div className="cardContainer" onClick={onClick}>
           <h3 className="cardName">{name}</h3>
           <p className="cardBrand">{brand}</p>
           <p className="cardBarcode">{barcode}</p>
