@@ -12,7 +12,7 @@ const DemoPage = () => {
   }
 
   return (
-    <div>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "20px", padding: "20px" }}>
       {demoProducts.map(product => (
         <Card 
         key={product.id}
