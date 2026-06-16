@@ -1,0 +1,55 @@
+.demoContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/*Header section*/
+.demoHeader {
+    text-align: center;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #eef2f6;
+}
+
+.demoTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 8px 0;
+}
+
+.demoSubtitle {
+    font-size: 1.125rem;
+    color: #64748b;
+    margin: 0 0 16px 0;
+    font-weight: 400;
+}
+
+.demoDescription {
+    font-size: 0.95rem;
+    color: #475569;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    line-height: 1.5;
+
+}
+
+.backLink {
+    display: inline-block;
+    background: none;
+    border: none;
+    color: #3b82f6;
+    font-size: 0.875rem;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background 0.2s ease;
+}
+
+.backLink:hover {
+    background-color: #eff6ff;
+    text-decoration: underline;
+}
+
