@@ -53,3 +53,190 @@
     text-decoration: underline;
 }
 
+/*Quick Actions section*/
+.quickActions {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 20px;
+    padding: 20px 40px;
+    margin-bottom: 32px;
+    border: 1px solid #e2e8f0;
+}
+
+.quickActionsTitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin: 0 0 12px 0;
+}
+
+.quickActionsButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.quickBtn {
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px
+}
+
+.quickBtnGenuine {
+    background-color: #10b981;
+    color: white;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+
+.quickBtnGenuine:hover {
+    background-color: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.quickBtnCounterfeit {
+    background-color: #ef4444;
+    color: white;
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+}
+
+.quickBtnCounterfeit:hover {
+    background-color: #dc2626;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/*instructions section*/
+.instructions {
+    background-color: #eff6ff;
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    border-left: 4px solid #3b82f6;
+}
+
+.instructionsTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.instructionsList {
+    margin: 0;
+    padding-left: 20px;
+    color: #1e3a8a;
+    line-height: 1.6;
+}
+
+.instructionsList li {
+    margin: 8px 0;
+}
+
+/*demo count badge*/
+.demoCount {
+    display: inline-block;
+    background-color: #e2e8f0;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: #475569;
+    margin-bottom: 16px;
+}
+
+/*cards grid*/
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 20px 0;
+}
+
+/*call to action section*/
+.callToAction {
+    margin-top: 48px;
+    padding: 32px 24px;
+    background-color: #f0f9ff;
+    border-radius: 24px;
+    text-align: center;
+}
+
+.callToActionTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+}
+
+.callToActionText {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    margin: 0 0 20px 0;
+}
+
+.scanButton {
+    background-color: #b5c8f1;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px
+}
+
+.scanButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(76, 133, 212, 0.15);
+    background-color: #91b6f0;
+}
+
+/*Responsive design*/
+@media (max-width: 768px) {
+    .demoContainer {
+        padding: 16px;
+    }
+
+    .demoTitle {
+        font-size: 1.5rem;
+    }
+
+    .demoSubtitle {
+        font-size: 1rem;
+    }
+
+    .quickActionsButtons {
+        flex-direction: column;
+    }
+
+    .quickBtn {
+        justify-content: center;
+    }
+
+    .cardsGrid {
+        grid-template-columns:  1fr;
+        gap: 16px
+    }
+
+    .callToAction {
+        padding: 24px 16px;
+    }
+
+    .callToActionTitle {
+        font-size: 1.125rem;
+    }
+}

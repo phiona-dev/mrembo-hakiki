@@ -54,7 +54,7 @@ const DemoPage = () => {
 
 
       {/*cards grid */}
-      <div className="cardsGrid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "20px", padding: "20px 0" }}>
+      <div className="cardsGrid">
         {demoProducts.map(product => (
           <Card 
           key={product.id}
@@ -70,12 +70,10 @@ const DemoPage = () => {
       </div>
 
       {/*call to action section */}
-      <div className="callToAction" style={{ marginTop: "40px", padding: "20px", backgroundColor: "#f0f9ff", borderRadius: "12px", textAlign: "center" }}>
-        <div className="callToActionTitle">Ready to scan a real product</div>
+      <div className="callToAction">
+        <div className="callToActionTitle">Ready to scan a real product?</div>
         <p className="callToActionText">Scan a barcode from any cosmetic product in your home</p>
-        <button className="scanButton" style={{ backgroundColor: "#a4c0ed", color: "white", padding: "12px 12px", border: "none", borderRadius: "8px", fontSize: "16px", cursor: "pointer" }}
-        onClick={() => navigate("/scan")}
-        >Go to Scanner</button>
+        <button className="scanButton" onClick={() => navigate("/scan")}>Go to Scanner</button>
       </div>
     </div>
     
