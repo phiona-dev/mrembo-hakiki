@@ -16,7 +16,7 @@ const DemoPage = () => {
   }
 
   return (
-    <div className="DemoContainer">
+    <div className="demoContainer">
     {/*Header section */}
       <div className="demoHeader">
         <h1 className="demoTitle">Demo Mode</h1>
