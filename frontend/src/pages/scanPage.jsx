@@ -2,12 +2,14 @@ import { useState } from 'react';
 import getProduct from '../services/api';
 import { useNavigate } from "react-router-dom";
 import ProductSkeleton from '../components/ProductSkeleton';
+import BarcodeScanner from '../components/BarcodeScanner';
 
 const ScanPage = () => {
   const navigate = useNavigate();
   const [barcode, setBarcode] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isScannerOpen, setIsScannerOpen] = useState(false)
 
   const handleCheckProduct = async (e) => {
     e.preventDefault();
@@ -40,6 +42,10 @@ const ScanPage = () => {
     }
   }
 
+  const handleScanner = () => {
+
+  }
+
 
   return (
       <div>
@@ -48,6 +54,7 @@ const ScanPage = () => {
           <button type="submit" disabled={isLoading}>
             {isLoading ? "Loading..." : "Submit"}
           </button>
+          <button>Scan Barcode</button>
           
           {error &&  (
             <div>
@@ -60,6 +67,7 @@ const ScanPage = () => {
             </div>
           )}
         </form>
+        
         {isLoading && <ProductSkeleton/>}
       </div>
   )
