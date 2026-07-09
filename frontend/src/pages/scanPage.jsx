@@ -11,50 +11,52 @@ const ScanPage = () => {
   const [error, setError] = useState(null);
   const [isScannerOpen, setIsScannerOpen] = useState(false)
 
-  const handleCheckProduct = async (e) => {
+  //helper function to handle api call and navigation logic
+  const fetchProductAndNavigate = async (codeToSearch) => {
+    if (!codeToSearch.trim()) return;
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await getProduct(codeToSearch);
+      navigate(`/result/${codeToSearch}`, { state: { product: response } })
+    } catch (error) {
+      setError(error.message)
+      setIsLoading(false);
+    }
+  }
+
+  const handleCheckProduct = (e) => {
     e.preventDefault();
-
-    if (!barcode.trim()) return;
-    setIsLoading(true);
-    setError(null);
-    try {
-      const response = await getProduct(barcode);
-
-      //console.log("Product data received:", response)
-      
-      navigate(`/result/${barcode}`, { state: { product: response } })
-    } catch(error) {
-      setError(error.message)
-      setIsLoading(false);
-    }
+    fetchProductAndNavigate(barcode)
   }
 
-  const handleRetry = async (barcode) => {
-    if (!barcode.trim()) return;
-    setIsLoading(true);
-    setError(null);
-    try {
-      const response = await getProduct(barcode);
-      navigate(`/result/${barcode}`, { state: { product: response } })
-    } catch(error) {
-      setError(error.message)
-      setIsLoading(false);
-    }
+  const handleRetry = () => {
+    fetchProductAndNavigate(barcode)
   }
 
-  const handleScanner = () => {
+  const handleDetected = (detectedBarcode) => {
+    setBarcode(detectedBarcode);
+    fetchProductAndNavigate(detectedBarcode) //immediately lookup the detected barcode
+  }
 
+  const handleScannerToggle = (e) => {
+    if (e) {
+      e.preventDefault()
+    }
+    setIsScannerOpen((prev) => !prev);
   }
 
 
   return (
       <div>
         <form onSubmit={handleCheckProduct}>
-          <input value={barcode} onChange={(e) => setBarcode(e.target.value)}placeholder="Enter barcode" disabled={isLoading}/>
+          <input value={barcode} onChange={(e) => setBarcode(e.target.value)} placeholder="Enter barcode" disabled={isLoading}/>
           <button type="submit" disabled={isLoading}>
             {isLoading ? "Loading..." : "Submit"}
           </button>
-          <button>Scan Barcode</button>
+          <button type="button" onClick={handleScannerToggle} >
+            {isScannerOpen ? "Close Scanner" : "Scan Barcode"}
+          </button>
           
           {error &&  (
             <div>
@@ -67,6 +69,15 @@ const ScanPage = () => {
             </div>
           )}
         </form>
+
+        {isScannerOpen && (
+          <div style={{ marginTop: "20px", border: "1px solid #ccc", padding: "10px" }}>
+            <BarcodeScanner
+              onDetected={handleDetected}
+              onClose={() => setIsScannerOpen(false)}
+            />
+          </div>
+        )}
         
         {isLoading && <ProductSkeleton/>}
       </div>
