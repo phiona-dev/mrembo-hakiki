@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import getProduct from '../services/api';
 import { useNavigate } from "react-router-dom";
 import ProductSkeleton from '../components/ProductSkeleton';
@@ -34,10 +34,12 @@ const ScanPage = () => {
     fetchProductAndNavigate(barcode)
   }
 
-  const handleDetected = (detectedBarcode) => {
+  const handleDetected = useCallback((detectedBarcode) => {
+    console.log("CAMERA CAUGHT THIS CODE:", detectedBarcode)
     setBarcode(detectedBarcode);
+    
     fetchProductAndNavigate(detectedBarcode) //immediately lookup the detected barcode
-  }
+  }, [])
 
   const handleScannerToggle = (e) => {
     if (e) {
@@ -73,6 +75,7 @@ const ScanPage = () => {
         {isScannerOpen && (
           <div style={{ marginTop: "20px", border: "1px solid #ccc", padding: "10px" }}>
             <BarcodeScanner
+              opened={isScannerOpen}
               onDetected={handleDetected}
               onClose={() => setIsScannerOpen(false)}
             />
